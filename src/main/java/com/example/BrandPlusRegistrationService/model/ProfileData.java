@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ProfileData {
-    String email;
+    UserData user;
     boolean isTtkLinked;
     boolean isTtkExpired;
     boolean isGoogleLined;

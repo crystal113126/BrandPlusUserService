@@ -14,21 +14,28 @@ import java.util.UUID;
 @Scope("prototype")
 @Accessors(chain = true)
 public class UserData {
+    private String uuid;
+
     @NotBlank(message = "Email cannot be blank")
     private String email;
-
-    @NotBlank(message = "Password cannot be blank")
     private String password;
 
     private boolean admin;
+    private String name;
+    private String status;
+    private String signInType;
+    private String token;
 
-    private String uuid;
-
-    public UserData(String uuid, String email, String password, boolean admin) {
+    public UserData(String uuid,  String email, String password, boolean admin,String name, String status, String signInType, String token) {
+        this.uuid = uuid;
+        this.name = name;
         this.email = email;
         this.password = password;
         this.admin = admin;
-        this.uuid = uuid;
+        this.status = status;
+        this.signInType = signInType;
+        this.token = token;
+
     }
 
 }

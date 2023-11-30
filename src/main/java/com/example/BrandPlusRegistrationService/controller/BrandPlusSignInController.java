@@ -1,6 +1,7 @@
 package com.example.BrandPlusRegistrationService.controller;
 
 import com.example.BrandPlusRegistrationService.model.UserData;
+import com.example.BrandPlusRegistrationService.model.request.SignUpRequest;
 import com.example.BrandPlusRegistrationService.service.BrandPlusSignUpService;
 import com.example.BrandPlusRegistrationService.service.LoadTtkAccessService;
 import com.example.BrandPlusRegistrationService.service.LoadTtkHealthTrackerService;
@@ -24,14 +25,11 @@ public class BrandPlusSignInController {
     @Autowired
     private LoadTtkHealthTrackerService loadTtkHealthTrackerService;
 
-    @PostMapping("/createAcc")
-    public boolean createAccount(@RequestParam String email, @RequestParam String password){
-        return bpSignUpService.insertAccountInfo(new UserData(UUID.randomUUID().toString(),email, password,false));
-    }
+
 
     @GetMapping("/createAdminAcc")
-    public boolean createAdminAccount(@RequestParam String email, @RequestParam String password){
-        return bpSignUpService.insertAccountInfo(new UserData(UUID.randomUUID().toString(),email, password,true));
+    public String createAdminAccount(@RequestBody SignUpRequest request){
+        return bpSignUpService.createAdminAccountInfo(request);
     }
 
     @GetMapping("/signIn")

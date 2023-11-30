@@ -10,6 +10,8 @@ import org.springframework.stereotype.Repository;
 public interface RetrieveAccDataMyBatisRepository {
     @Select("SELECT email FROM account_info WHERE user_id = #{uuid}")
     public String getEmail(@NotBlank String uuid);
+    @Select("SELECT * FROM account_info WHERE user_id = #{uuid}")
+    public UserData getUser(String uuid);
 
     @Select("SELECT ref_time_stamp FROM tiktok_auth WHERE user_id = #{uuid}")
     public Long getTtkRefExp(@NotBlank String uuid);

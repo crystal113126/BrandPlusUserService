@@ -13,8 +13,8 @@ public interface AccountInfoMyBatisRepository {
     @Delete("DELETE FROM account_info WHERE email = #{email}")
     public int deleteByEmail(@NotBlank String email);
 
-    @Insert("INSERT INTO account_info(user_id, email, password, admin) " +
-            " VALUES (#{uuid}, #{email}, #{password}, #{admin, jdbcType=BIT})")
+    @Insert("INSERT INTO account_info(user_id, email, password, admin, name, status,sign_in_type, token) " +
+            " VALUES (#{uuid}, #{email}, #{password}, #{admin, jdbcType=BIT}, #{name}, #{status}, #{signInType}, #{token})")
     public int insert(@NotNull UserData userData);
 
     @Update("UPDATE account_info SET password = #{password} WHERE user_id = #{uuid}")
